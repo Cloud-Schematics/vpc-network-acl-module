@@ -1,6 +1,6 @@
 # VPC Network ACLs Module
 
-This module is used to create any number of address prefixes across any number of zones in a VPC
+This module is used to create any number of Network Access Control Lists in a single VPC.
 
 # Module Variables
 
