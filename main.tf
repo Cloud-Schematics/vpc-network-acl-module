@@ -8,10 +8,10 @@ module "acl_map" {
 }
 
 resource "ibm_is_network_acl" "acl" {
-  for_each          = module.acl_map.value
-  vpc               = var.vpc_id
-  name              = "${var.prefix}-${each.value.name}"
-  resource_group_id = lookup(each.value, "resource_group_id", null)
+  for_each       = module.acl_map.value
+  vpc            = var.vpc_id
+  name           = "${var.prefix}-${each.value.name}"
+  resource_group = lookup(each.value, "resource_group_id", null)
   tags = concat(
     var.tags == null ? [] : var.tags,
     lookup(each.value, "tags", null) == null ? [] : each.value.tags
