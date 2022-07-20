@@ -70,7 +70,22 @@ variable "network_acls" {
     {
       name              = "vpc-acl"
       add_cluster_rules = true
-      rules = []
+      rules = [
+        {
+          name        = "allow-all-inbound"
+          action      = "allow"
+          direction   = "inbound"
+          destination = "0.0.0.0/0"
+          source      = "0.0.0.0/0"
+        },
+        {
+          name        = "allow-all-outbound"
+          action      = "allow"
+          direction   = "outbound"
+          destination = "0.0.0.0/0"
+          source      = "0.0.0.0/0"
+        }
+      ]
     }
   ]
 
